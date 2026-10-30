@@ -1,0 +1,3 @@
+# Saventra working instructions
+
+Read README.md and docs/BLUEPRINT.md, docs/WORKFLOW.md, docs/PIPELINE.md before changing the project. This is a design prototype awaiting owner feedback; do not silently expand into production banking or cloud infrastructure. Keep real versus simulated behavior clear. Preserve accessible responsive layouts, relative asset URLs, and dependency-free local operation unless a scoped change requires otherwise. Run npm test and npm run build before publishing. Never commit credentials or personal financial information. No force pushes or destructive history changes. Brand clearance is pending; do not claim a registered trademark.

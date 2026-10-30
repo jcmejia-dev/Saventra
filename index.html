@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#234c3b"><meta name="description" content="Saventra design preview. Build your savings, make room for life, and find your way forward."><title>Saventra — Your next chapter, saved.</title><link rel="stylesheet" href="./styles.css"></head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<aside class="sidebar">
+  <a class="brand" href="#overview" data-view="overview"><span class="brand-icon">s<span>↗</span></span>Saventra</a>
+  <div class="workspace"><span class="avatar">JD</span><div>Jamie’s space<small>Personal workspace</small></div><span class="workspace-arrow">⌄</span></div>
+  <p class="nav-label">YOUR MONEY, YOUR WAY</p>
+  <nav aria-label="Main navigation">
+    <button class="nav-item active" data-view="overview"><span>◫</span>Overview</button>
+    <button class="nav-item" data-view="goals"><span>◎</span>Savings goals<span class="nav-count">3</span></button>
+    <button class="nav-item" data-view="recovery"><span>↗</span>Comeback plans</button>
+    <button class="nav-item" data-view="activity"><span>≋</span>Your activity</button>
+    <button class="nav-item" data-view="blueprint"><span>▤</span>The blueprint</button>
+  </nav>
+  <div class="sidebar-bottom"><div class="little-sprout">✳</div><strong>A little today.<br>A different tomorrow.</strong><p>You don’t need a perfect plan.<br>Just your next small step.</p><div class="preview-tag"><i></i> DESIGN PREVIEW · V0.1</div></div>
+  <button class="profile" id="about-button"><span class="avatar small">JD</span><span>Jamie Demo<small>Sample workspace</small></span><span>ⓘ</span></button>
+</aside>
+<div class="shell">
+  <header class="topbar"><div class="breadcrumb">Your workspace <span>/</span> <strong id="breadcrumb">Overview</strong></div><div class="top-actions"><span class="demo-pill">Sample data</span><label class="currency-label"><span class="sr-only">Demo currency</span><select id="currency"><option value="USD">USD · $</option><option value="EUR">EUR · €</option><option value="GBP">GBP · £</option><option value="PHP">PHP · ₱</option><option value="JPY">JPY · ¥</option><option value="INR">INR · ₹</option><option value="SGD">SGD · S$</option></select></label><span class="avatar small top-avatar">JD</span></div></header>
+  <main id="main" tabindex="-1">
+    <section class="view" id="overview-view">
+      <div class="page-heading"><div><p class="eyebrow">A LITTLE PROGRESS, EVERY DAY</p><h1>Make room for what matters<span>.</span></h1><p>Your goals are still yours. Even when life changes the plan.</p></div><button class="button primary" id="add-savings"><span>＋</span> Add savings</button></div>
+      <div class="dashboard-grid">
+        <section class="balance-card"><div class="card-top"><span><i class="live-dot"></i> YOUR SAVINGS, TOGETHER</span><span class="outline-icon">↗</span></div><div class="balance-number" id="total-balance">$8,450<span>.00</span></div><p class="balance-caption">Small steps. Something real.</p><div class="balance-chart" aria-hidden="true"><svg viewBox="0 0 600 100" preserveAspectRatio="none"><defs><linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a6cda4" stop-opacity=".22"/><stop offset="1" stop-color="#a6cda4" stop-opacity="0"/></linearGradient></defs><path d="M0 90 C40 88 48 78 78 81 S130 64 165 68 S210 48 246 57 S300 26 334 38 S385 22 419 24 S463 6 498 16 S550 4 600 3 L600 100 L0 100 Z" fill="url(#fade)"/><path d="M0 90 C40 88 48 78 78 81 S130 64 165 68 S210 48 246 57 S300 26 334 38 S385 22 419 24 S463 6 498 16 S550 4 600 3" fill="none" stroke="#bad7a4" stroke-width="2.5"/></svg></div><div class="balance-footer"><span><b>↗ <span id="month-added">$650</span></b> added this month</span><span>Illustrative trend</span></div></section>
+        <section class="next-card"><div class="card-top"><span>YOUR NEXT SMALL STEP</span><span class="sun-icon">☀</span></div><p class="next-date">NEXT PAYDAY · NOV 6</p><h2>A little closer <br>to breathing room.</h2><p>Your next planned contribution is <strong data-money="150">$150</strong> to your emergency fund.</p><button class="button light" id="checkin-button">Review my next step <span>↗</span></button><span class="quiet-note">Plans can change. You’re in control.</span></section>
+      </div>
+      <div class="section-heading"><div><h2>Your next chapters <span class="count">03</span></h2><p>A purpose for every little bit you put aside.</p></div><button class="text-button" id="new-goal">＋ New goal</button></div>
+      <div class="goals-grid" id="goal-cards"></div>
+      <div class="bottom-grid"><section class="life-card"><span class="life-icon">↺</span><div><p class="eyebrow">BUILT FOR REAL LIFE</p><h2>Need to dip into your savings?</h2><p>See what changes. Find a comfortable way back.<br>No guilt. No starting over.</p><button class="text-button" id="withdraw-button">Let’s make a plan <span>↗</span></button></div><div class="orbit-art" aria-hidden="true"><span></span><span></span><b>↗</b></div></section><section class="activity-card"><div class="section-heading compact"><h2>A little progress</h2><button class="text-button" data-view="activity">View all ↗</button></div><div id="recent-activity"></div></section></div>
+      <footer><span><i></i> Your pace. Your priorities. Your next chapter.</span><span>Designed for wherever life takes you <span aria-hidden="true">✳</span></span></footer>
+    </section>
+    <section class="view" id="goals-view" hidden><div class="page-heading"><div><p class="eyebrow">SAVE WITH A PURPOSE</p><h1>Your next chapters.</h1><p>Choose a goal to see its balance and add savings.</p></div><button class="button primary" id="goals-new">＋ New goal</button></div><div class="goals-grid" id="all-goals"></div></section>
+    <section class="view" id="recovery-view" hidden><div class="page-heading"><div><p class="eyebrow">LIFE HAPPENS. KEEP GOING.</p><h1>A comfortable way back.</h1><p>Your savings helped you. Now let’s help them grow again.</p></div><button class="button primary" id="recovery-new">Plan a withdrawal ↗</button></div><div id="plans-list"></div></section>
+    <section class="view" id="activity-view" hidden><div class="page-heading"><div><p class="eyebrow">EVERY STEP COUNTS</p><h1>Your savings story.</h1><p>What you’ve put aside, and what it helped you do.</p></div></div><section class="panel" id="activity-list"></section></section>
+    <section class="view" id="blueprint-view" hidden><div class="page-heading"><div><p class="eyebrow">THE ROAD AHEAD</p><h1>A thoughtful foundation.</h1><p>Design first. Build the right thing next.</p></div></div><div class="blueprint-grid"><article class="panel"><span class="phase">01 · NOW</span><h2>Explore the design</h2><p>Responsive dashboard, savings goals, contribution flow, withdrawal preview, and adjustable recovery plans. Sample data lives in this browser tab only.</p></article><article class="panel"><span class="phase">02 · AFTER APPROVAL</span><h2>Build the savings engine</h2><p>Durable offline storage, correct currency precision, real income schedules, protected balances, accessible onboarding, and data export.</p></article><article class="panel"><span class="phase">03 · LATER</span><h2>Grow carefully</h2><p>Translated experiences, optional encrypted backup, user-controlled reminders, and shared goals with explicit privacy controls.</p></article></div><a class="button primary docs-link" href="https://github.com/jcmejia-dev/Saventra/tree/main/docs" target="_blank" rel="noopener">Read the full blueprint ↗</a></section>
+  </main>
+</div>
+<dialog id="modal"><form id="modal-form"><div class="modal-top"><span class="eyebrow" id="modal-eyebrow">YOUR NEXT STEP</span><button type="button" class="icon-button" id="close-modal" aria-label="Close dialog">×</button></div><h2 id="modal-title"></h2><div id="modal-body"></div><p id="form-error" class="error" role="alert"></p><div class="modal-actions"><button type="button" class="button secondary" id="cancel-modal">Cancel</button><button type="submit" class="button primary" id="submit-modal">Save</button></div></form></dialog>
+<div class="toast" id="toast" role="status"></div>
+<script type="module" src="./app.js"></script>
+</body></html>
+
+
