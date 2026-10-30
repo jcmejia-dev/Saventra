@@ -16,6 +16,9 @@ Owner requested adaptive recovery, bank-style account organization, savings educ
 
 Live AI is a prepared, disabled server integration, as selected by the owner. See [AI and banking boundaries](AI-INTEGRATION.md). No production bank integration is included.
 
+## Version 0.3: accounts, currency onboarding, guided planning and insights
+Real Managed Neon Auth accounts now support email/password registration, login, logout and session restoration. New accounts select a country/nationality, receive a currency suggestion, and can override it. Personal financial records and preferences persist on this device per user, without cloud synchronization. Demo data remains separate. The planner is a three-step review flow; charts derive from recorded activity with date and goal filters. See [accounts and insights boundaries](ACCOUNTS-AND-INSIGHTS.md).
+
 ## Production MVP after design approval
 1. Accessible onboarding: locale, currency, income cadence, basic essentials, optional minimum reserve.
 2. Offline durable ledger: goals, contributions, withdrawals, adjustments, and recovery allocations. Data export and user-controlled backup.

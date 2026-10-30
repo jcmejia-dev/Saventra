@@ -7,7 +7,8 @@ http.createServer(async (req, res) => {
     const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
     const file = pathname === '/' ? 'index.html' : pathname.slice(1);
     if (!['index.html', 'styles.css', 'app.js', 'finance.js', 'planning.js', 'coach.js'].includes(file)) { res.writeHead(404).end(); return; }
+    res.setHeader('Cache-Control','no-store');
     res.setHeader('Content-Type', `${types[path.extname(file)]}; charset=utf-8`);
-    res.end(await readFile(file));
+    res.end(await readFile(`dist/${file}`));
   } catch { res.writeHead(404).end(); }
 }).listen(4173, '127.0.0.1', () => console.log('Local: http://127.0.0.1:4173'));
