@@ -1,0 +1,2 @@
+export function currencyDigits(currency){return new Intl.NumberFormat('en',{style:'currency',currency}).resolvedOptions().maximumFractionDigits;}
+export function amountToMinor(value,currency){const n=Number(value),factor=10**currencyDigits(currency),scaled=Math.round(n*factor);if(!Number.isFinite(n)||!Number.isSafeInteger(scaled)||Math.abs(n*factor-scaled)>0.00001)throw new RangeError('Use valid currency amounts with up to '+currencyDigits(currency)+' decimal places.');return scaled;}

@@ -12,6 +12,14 @@
     "node": ">=22"
   },
   "dependencies": {
+    "@neondatabase/auth": "^0.6.0-beta",
     "ai": "^7.0.157"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  },
+  "overrides": {
+    "better-auth": "1.7.14",
+    "zod": "4.6.7"
   }
 }
