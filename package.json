@@ -3,6 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "scripts": { "build": "node scripts/build.mjs", "test": "node --test", "start": "node scripts/serve.mjs" },
-  "engines": { "node": ">=22" }
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test",
+    "start": "node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "ai": "^7.0.157"
+  }
 }

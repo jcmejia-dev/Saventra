@@ -6,7 +6,7 @@ http.createServer(async (req, res) => {
   try {
     const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
     const file = pathname === '/' ? 'index.html' : pathname.slice(1);
-    if (!['index.html', 'styles.css', 'app.js', 'finance.js'].includes(file)) { res.writeHead(404).end(); return; }
+    if (!['index.html', 'styles.css', 'app.js', 'finance.js', 'planning.js', 'coach.js'].includes(file)) { res.writeHead(404).end(); return; }
     res.setHeader('Content-Type', `${types[path.extname(file)]}; charset=utf-8`);
     res.end(await readFile(file));
   } catch { res.writeHead(404).end(); }

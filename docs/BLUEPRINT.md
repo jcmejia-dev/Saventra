@@ -11,6 +11,11 @@ Create goal → record real contribution → preview withdrawal → compare reco
 ## Version 0.1: implemented preview
 Responsive browser dashboard; in-memory goals, contributions, activity, withdrawal calculation and recovery plans; seven demo currency labels; blueprint view. Refresh resets changes. Dates and chart are sample illustrations. No login, durable storage, bank connection, exchange rates, notification delivery, or payment processing.
 
+## Version 0.2: adaptive planning preview
+Owner requested adaptive recovery, bank-style account organization, savings education, and an assistant. Implemented manual account snapshots; editable expense and income-period estimates; protected minimum and split withdrawal comparison; optional replenishment; reduced, paused, resumed, and recorded recovery contributions; surplus shared across recovery plans in display order; repeated-purpose prompts after three distinct withdrawal events; four educational lessons with checks; and a local rule-based coach. Changing budget periods does not convert expense estimates and users are prompted to review them. Everything remains in memory and resets on refresh. Split recovery contributions restore the source goals in allocation order. Recording an actual contribution reduces available income in the current period to prevent reuse.
+
+Live AI is a prepared, disabled server integration, as selected by the owner. See [AI and banking boundaries](AI-INTEGRATION.md). No production bank integration is included.
+
 ## Production MVP after design approval
 1. Accessible onboarding: locale, currency, income cadence, basic essentials, optional minimum reserve.
 2. Offline durable ledger: goals, contributions, withdrawals, adjustments, and recovery allocations. Data export and user-controlled backup.

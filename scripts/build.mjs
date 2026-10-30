@@ -1,5 +1,5 @@
 import { mkdir, copyFile } from 'node:fs/promises';
 await mkdir('dist', { recursive: true });
-for (const file of ['index.html', 'styles.css', 'app.js', 'finance.js']) await copyFile(file, `dist/${file}`);
+for (const file of ['index.html', 'styles.css', 'app.js', 'finance.js', 'planning.js', 'coach.js']) await copyFile(file, `dist/${file}`);
 await copyFile('.nojekyll', 'dist/.nojekyll');
 console.log('Static preview built in dist/');

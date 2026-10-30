@@ -1,4 +1,5 @@
 import { recovery } from './finance.js';
+import { mountCoach } from './coach.js';
 const $ = (id) => document.getElementById(id);
 let currency = 'USD';
 const goals = [
@@ -9,6 +10,7 @@ const goals = [
 const activities = [ {name:'Added to Breathing room',note:'Sample · Today',amount:15000}, {name:'Added to Somewhere new',note:'Sample · Yesterday',amount:7500}, {name:'Added to A place of my own',note:'Sample · Oct 28',amount:10000} ];
 const plans = [];
 let monthAdded = 65000;
+let refreshCoach = () => {};
 function money(minor, decimals = false) { return new Intl.NumberFormat(undefined, {style:'currency',currency,minimumFractionDigits:decimals?2:0,maximumFractionDigits:decimals?2:2}).format(minor/100); }
 function escape(value) {return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function toast(message){$('toast').textContent=message;$('toast').classList.add('visible');clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('toast').classList.remove('visible'),4000);}
@@ -23,8 +25,9 @@ function render(){
   document.querySelector('.nav-count').textContent=goals.length;
   document.querySelector('.count').textContent=String(goals.length).padStart(2,'0');
   $('plans-list').innerHTML=plans.length?plans.map(p=>`<article class="panel recovery-card"><div><span class="phase">YOUR COMEBACK PLAN</span><h2>${escape(p.goal)}</h2><p>${money(p.withdrawal)} used for ${escape(p.reason)}. ${p.count} planned contributions.</p><p>Final contribution: ${money(p.last)}. No contribution has been recorded yet.</p></div><div class="plan-value">${money(p.contribution)}<small>per ${escape(p.cadence)} · estimate</small></div></article>`).join(''):`<article class="panel"><span class="phase">A FRESH START ISN’T REQUIRED</span><h2>A plan for whatever comes next.</h2><p>No recovery plans yet. Try “Plan a withdrawal” to see the impact before you decide. Your balance only changes when you confirm.</p></article>`;
+  refreshCoach();
 }
-function showView(view){document.querySelectorAll('.view').forEach(el=>el.hidden=el.id!==`${view}-view`);document.querySelectorAll('.nav-item').forEach(el=>{el.classList.toggle('active',el.dataset.view===view);if(el.dataset.view===view)el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});$('breadcrumb').textContent={overview:'Overview',goals:'Savings goals',recovery:'Comeback plans',activity:'Your activity',blueprint:'The blueprint'}[view];history.replaceState(null,'',`#${view}`);}
+function showView(view){document.querySelectorAll('.view').forEach(el=>el.hidden=el.id!==`${view}-view`);document.querySelectorAll('.nav-item').forEach(el=>{el.classList.toggle('active',el.dataset.view===view);if(el.dataset.view===view)el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});$('breadcrumb').textContent={overview:'Overview',goals:'Savings goals',recovery:'Comeback plans',activity:'Your activity',blueprint:'The blueprint',money:'Accounts & expenses',learn:'Learn to save',coach:'Savings coach'}[view];history.replaceState(null,'',`#${view}`);}
 let submit;
 function modal(title,body,label,handler){$('modal-title').textContent=title;$('modal-body').innerHTML=body;$('submit-modal').textContent=label;$('submit-modal').hidden=!handler;$('form-error').textContent='';submit=handler;$('modal').showModal();}
 function options(selected=0){return goals.map((g,i)=>`<option value="${i}" ${i===selected?'selected':''}>${escape(g.name)} · ${money(g.balance)}</option>`).join('');}
@@ -43,4 +46,5 @@ $('modal-form').onsubmit=event=>{event.preventDefault();try{submit?.();}catch(er
 $('currency').onchange=()=>{currency=$('currency').value;render();toast('Demo currency changed. Sample numbers are relabeled, not converted.');};
 $('checkin-button').onclick=()=>addSavings(0);
 $('about-button').onclick=()=>modal('A space to explore.',`<p>This is Saventra’s first design prototype. All balances, dates, and activity are illustrative. Changes last only until this page is refreshed.</p><p>Currency selection relabels sample amounts; it does not perform foreign exchange. This preview does not connect to banks, move money, or send reminders.</p><p>Try a goal, add savings, or explore a withdrawal. Share your feedback before the production build.</p>`,'',null);
-render();showView(['overview','goals','recovery','activity','blueprint'].includes(location.hash.slice(1))?location.hash.slice(1):'overview');
+refreshCoach = mountCoach({$,goals,plans,activities,money,escape,modal,toast,render,showView,minor,amountField});
+render();showView(['overview','goals','recovery','activity','blueprint','money','learn','coach'].includes(location.hash.slice(1))?location.hash.slice(1):'overview');
