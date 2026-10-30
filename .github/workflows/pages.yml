@@ -17,8 +17,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - run: npm ci
       - run: npm test
-      - run: node --check app.js && node --check finance.js
+      - run: node --check app.js && node --check finance.js && node --check coach.js && node --check planning.js && node --check server/ai-coach.mjs
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'

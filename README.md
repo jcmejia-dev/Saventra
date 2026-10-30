@@ -6,7 +6,9 @@
 
 First interactive design prototype, awaiting owner feedback. [Open the preview](https://jcmejia-dev.github.io/Saventra/).
 
-Try adding savings, creating a goal, changing the demo currency, and planning a withdrawal. The dashboard uses illustrative data; changes are in memory and reset on refresh. Currency selection relabels sample values rather than converting them. No accounts, bank connections, real transfers, durable storage, or reminders are implemented. The brand name remains subject to clearance.
+Try adding savings, comparing protected withdrawals, adapting recovery plans, planning expenses, tracking manual account balances, completing savings lessons, and asking the local coach. The dashboard uses illustrative data; changes are in memory and reset on refresh. Currency selection relabels sample values rather than converting them. Accounts are manual snapshots, not bank connections. There are no real transfers, durable storage, or reminders. The brand name remains subject to clearance.
+
+The working local coach uses rules and calculations, not a connected AI model. A secure server integration is prepared but inactive; see [AI integration](docs/AI-INTEGRATION.md).
 
 ## Project documents
 
@@ -16,9 +18,10 @@ Try adding savings, creating a goal, changing the demo currency, and planning a 
 
 ## Run locally
 
-Node 22+. No dependencies to install.
+Node 22+. Install the server-side AI SDK dependency for tests; the browser uses native modules.
 
 ```sh
+npm ci
 npm start
 npm test
 npm run build
