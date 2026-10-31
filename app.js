@@ -89,6 +89,9 @@ refreshCoach = mountCoach({$,goals,plans,activities,money,escape,modal,toast,ren
 if(savedState?.coach)refreshCoach.setState(savedState.coach);
 refreshInsights=mountInsights({$,goals,activities,money,escape,isPersonal:personal,addSavings,showView,bankSummary});
 savingEnabled=true;
+const navOrder=['overview','goals','money','insights','activity','recovery','learn','coach','blueprint','settings'];
+const nav=document.querySelector('nav');
+[...nav.querySelectorAll('.nav-item')].sort((a,b)=>navOrder.indexOf(a.dataset.view)-navOrder.indexOf(b.dataset.view)).forEach((item,index)=>{item.classList.toggle('nav-secondary',index>5);nav.append(item);});
 mountIdentity(identity,{toast,onLogout:()=>location.reload(),onProfile:next=>{
   if(profile&&profile.currency!==next.currency&&(goals.some(g=>g.balance>0)||activities.length||refreshCoach.getState().accounts.some(a=>a.balance>0)))throw new Error('This workspace already contains money. Keep its currency to avoid relabeling balances. Create a separate workspace for another currency.');
   if(profile&&profile.currency!==next.currency){const nextFactor=10**currencyDigits(next.currency);goals.forEach(g=>{g.target=Math.round(g.target/factor()*nextFactor);g.minimum=Math.round((g.minimum||0)/factor()*nextFactor);});saveWorkspace();}

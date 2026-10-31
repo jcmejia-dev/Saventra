@@ -62,3 +62,7 @@ body[data-theme=midnight]{--ink:#ece9f6;--muted:#afa8bf;--line:#39344a;backgroun
 
 /* Full-page forms have one consistent navigation action. */
 #cancel-modal{display:none!important}
+
+/* Navigation prioritizes the daily money tasks and keeps supporting tools quieter. */
+.sidebar nav{gap:5px}.nav-item{min-height:42px;border-radius:10px;font-size:12px}.nav-item>span:first-child{width:25px;color:#8274a6}.nav-item.active{font-weight:650;background:#f0edf7;color:#66558e}.nav-item.nav-secondary{color:#77758e}.nav-item.nav-secondary>span:first-child{color:#a39ab5}.sidebar .nav-label{margin:26px 0 10px}.sidebar nav{padding-bottom:12px}.nav-count{margin-left:auto}
+@media(max-width:850px){.sidebar nav{gap:5px}.nav-item{min-height:38px}.nav-item.nav-secondary{opacity:.9}}
