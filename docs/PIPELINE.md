@@ -9,3 +9,5 @@ Repository Pages source must be GitHub Actions. Expected URL: https://jcmejia-de
 Checks cover recovery arithmetic, invalid withdrawals, and JavaScript syntax. Visual and interaction checks supplement them. Future production work must add meaningful ledger, scheduling, currency precision, storage failure, and accessibility verification.
 
 If a workflow fails, inspect the failed job; fix the cause and publish a normal commit. Do not disable failing checks to make the pipeline green. Revert a bad change to publish a rollback. Repository settings and runtime deployment status should be reported separately from source configuration.
+
+Bank savings update: contributions can be assigned to a named manual bank/wallet account (including custom names). Goal cards, activity, accounts, and insights display those allocations. Legacy balances remain unassigned. Withdrawals reduce allocations in listed order, then unassigned funds; recovery contributions can select an account. Account snapshots remain separate and are never counted twice. Entry forms and the withdrawal planner now use full-page responsive layouts. Bank conservation tests supplement manual UI checks.

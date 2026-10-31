@@ -47,3 +47,5 @@ M0: owner reviews visual prototype. M1: approved design and tested money/schedul
 
 ## Open decisions
 Approve visual direction and working name; select browser/PWA versus native-first production; choose first translation languages; define backup expectations and eventual pricing. These do not block the static design review.
+
+Bank savings update: contributions can be assigned to a named manual bank/wallet account (including custom names). Goal cards, activity, accounts, and insights display those allocations. Legacy balances remain unassigned. Withdrawals reduce allocations in listed order, then unassigned funds; recovery contributions can select an account. Account snapshots remain separate and are never counted twice. Entry forms and the withdrawal planner now use full-page responsive layouts. Bank conservation tests supplement manual UI checks.
